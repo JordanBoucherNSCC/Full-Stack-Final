@@ -1,0 +1,18 @@
+.storefront {
+	color: #fff;
+
+	.item-grid {
+		display: grid;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		gap: 1rem;
+		margin-top: 1rem;
+	}
+
+	.item-card {
+		border: 1px solid #e5e7eb;
+		border-radius: 8px;
+		padding: 0.75rem;
+		background: #727074;
+		color: inherit;
+	}
+}

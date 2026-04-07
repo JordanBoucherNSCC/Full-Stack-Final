@@ -17,7 +17,7 @@ const App = () => {
     axios.get(url)
       .then(response => {
         console.log(response)
-        setCategories(response.data)
+        setCategories(response.data.categories)
       })
       .catch(err => console.error('Error loading categories:', err))
   }
@@ -27,7 +27,7 @@ const App = () => {
     axios.get(url)
       .then(response => {
         console.log(response)
-        setItems(response.data)
+        setItems(response.data.items)
       })
       .catch(err => console.error('Error loading items:', err))
   }
@@ -43,10 +43,10 @@ const App = () => {
     console.log(newCategory)
 
     const url = "http://127.0.0.1:3001/categories"
-    axios.post(url, newCategory)
+    axios.post(url, { category: newCategory })
       .then(response => {
         console.log(response)
-        loadCategories()
+        setCategories(response.data.categories)
       })
       .catch(err => console.error('Error adding category:', err))
   }
@@ -63,10 +63,10 @@ const App = () => {
     console.log(updatedCategory)
 
     const url = `http://127.0.0.1:3001/categories/${updatedCategory.id}`
-    axios.patch(url, updatedCategory)
+    axios.patch(url, { category: updatedCategory })
       .then(response => {
         console.log(response)
-        loadCategories()
+        setCategories(response.data.categories)
         setEditingCategory(null)
       })
       .catch(err => console.error('Error updating category:', err))
@@ -80,7 +80,7 @@ const App = () => {
     axios.delete(url)
       .then(response => {
         console.log(response)
-        loadCategories()
+        setCategories(response.data.categories)
       })
       .catch(err => console.error('Error deleting category:', err))
   }
@@ -90,10 +90,10 @@ const App = () => {
     console.log(newItem)
 
     const url = "http://127.0.0.1:3001/items"
-    axios.post(url, newItem)
+    axios.post(url, { item: newItem })
       .then(response => {
         console.log(response)
-        loadItems()
+        setItems(response.data.items)
       })
       .catch(err => console.error('Error adding item:', err))
   }
@@ -110,10 +110,10 @@ const App = () => {
     console.log(updatedItem)
 
     const url = `http://127.0.0.1:3001/items/${updatedItem.id}`
-    axios.patch(url, updatedItem)
+    axios.patch(url, { item: updatedItem })
       .then(response => {
         console.log(response)
-        loadItems()
+        setItems(response.data.items)
         setEditingItem(null)
       })
       .catch(err => console.error('Error updating item:', err))
@@ -127,7 +127,7 @@ const App = () => {
     axios.delete(url)
       .then(response => {
         console.log(response)
-        loadItems()
+        setItems(response.data.items)
       })
       .catch(err => console.error('Error deleting item:', err))
   }

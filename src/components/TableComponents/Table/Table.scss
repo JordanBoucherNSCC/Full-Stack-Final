@@ -1,0 +1,23 @@
+.Table-Component table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.Table-Component th,
+.Table-Component td {
+	padding: 0.5rem 0.9rem;
+	text-align: left;
+}
+
+.Table-Component thead th {
+	white-space: nowrap;
+}
+
+.Table-Component .actions-cell {
+	white-space: nowrap;
+}
+
+.Table-Component .actions-group {
+	display: inline-flex;
+	gap: 0.35rem;
+}

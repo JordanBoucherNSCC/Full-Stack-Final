@@ -1,3 +1,5 @@
+import './Button.scss'
+
 function Button({ children, ...props }) {
     return (
         <button {...props}>

@@ -10,8 +10,8 @@ function Storefront({ items }) {
                 <div key={item.id} className="item-card">
                     <h3>{item.title}</h3>
                     <p><strong>Category:</strong> {item.category_name}</p>
-                    <p>{item.description}</p>
                     <p><strong>Price:</strong> ${item.price}</p>
+                    <p>{item.description}</p>
                 </div>
                 ))}
             </div>

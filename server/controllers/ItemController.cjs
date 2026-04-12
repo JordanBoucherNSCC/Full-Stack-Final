@@ -1,8 +1,14 @@
 const conn = require('../connection.cjs')
 
+const selectItemsSql = `
+    SELECT items.*, categories.name AS category_name
+    FROM items
+    LEFT JOIN categories ON categories.id = items.category_id
+`
+
 module.exports = {
     index(request, response) {
-        const sql = `SELECT * FROM items`
+        const sql = selectItemsSql
         conn.query(sql, (error, results) => {
             if (error) return response.sendStatus(500)
             return response.send( { items: results })
@@ -16,7 +22,7 @@ module.exports = {
             if (error) return response.sendStatus(500)
 
             //send back all items
-            const sql = `SELECT * FROM items`
+            const sql = selectItemsSql
             conn.query(sql, (error, results) => {
                 if (error) return response.sendStatus(500)
                 return response.send( { items: results })
@@ -31,7 +37,7 @@ module.exports = {
             if (error) return response.sendStatus(500)
 
             //send back all items
-            const sql = `SELECT * FROM items`
+            const sql = selectItemsSql
             conn.query(sql, (error, results) => {
                 if (error) return response.sendStatus(500)
                 return response.send( { items: results })
@@ -46,7 +52,7 @@ module.exports = {
             if (error) return response.sendStatus(500)
 
             //send back all items
-            const sql = `SELECT * FROM items`
+            const sql = selectItemsSql
             conn.query(sql, (error, results) => {
                 if (error) return response.sendStatus(500)
                 return response.send( { items: results })
